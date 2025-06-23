@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✅ Task Manager Frontend
 
-## Getting Started
+Este es el **frontend de la aplicación Task Manager**, construido con [Next.js 15](https://nextjs.org/docs), utilizando el nuevo sistema de **App Router**, **Material UI (MUI)** y React 19.  
+Se comunica con la API `task_manager_api` para autenticación vía cookies y gestión segura de sesión.
 
-First, run the development server:
+---
+
+## 🧰 Tecnologías principales
+
+- [Next.js 15 (App Router)](https://nextjs.org/docs/app)
+- React 19
+- Material UI (v7)
+- TypeScript
+- Charts con [Recharts](https://recharts.org/)
+- Drag & drop con `@dnd-kit/core`
+
+---
+
+## ⚙️ Instalación y ejecución local
+
+### 1. Clona el repositorio
+
+```bash
+git clone https://github.com/chander131/easy_task_manager.git
+cd easy_task_manager
+```
+
+### 2. Instala las dependencias
+
+```bash
+npm install
+# o si usas Yarn
+yarn install
+```
+
+### 3. Crea el archivo .env.local
+
+```env
+TASK_MANAGER_API=http://localhost:8000
+NEXT_PUBLIC_TASK_MANAGER_API=http://localhost:8000
+```
+
+> Asegúrate de que este dominio esté habilitado en CORS desde el backend.
+
+### 4. Ejecuta la aplicación en modo desarrollo
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La app estará disponible en [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔐 Autenticación
 
-## Learn More
+La autenticación se maneja por medio de cookies HTTPOnly que son establecidas por el backend `(task_manager_api)`.
+Este frontend incluye:
 
-To learn more about Next.js, take a look at the following resources:
+- Redirección automática si no hay sesión activa
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Consumo seguro de rutas protegidas desde componentes Server y Client
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Manejo de estado de usuario en contexto compartido
 
-## Deploy on Vercel
+### 📦 Scripts disponibles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev`: Ejecuta la app en desarrollo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run build`: Compila para producción
+
+- `npm run start`: Inicia el servidor de producción
+
+- `npm run lint`: Corre el linter con configuración de Next.js
+
+### 🎨 Estilo y UI
+
+- Componentes de UI modernos con [Material UI](https://mui.com)
+- Tipografía basada en `@fontsource/roboto`
+- Temas y modo oscuro fácilmente extensibles
+
+### 📊 Funcionalidad destacada
+
+- Panel principal de tareas (drag & drop)
+- Visualización de estadísticas con gráficos (Recharts)
+- Acceso condicional a rutas protegidas
+- Interacción fluida con la API REST
+
+### 📦 Despliegue
+
+Puede desplegarse fácilmente en:
+
+- Vercel (recomendado para Next.js)
+- Docker
+- Servidores Node.js estándar (`npm run build && npm run start`)
+
+### 🧑‍💻 Contribuciones
+
+Pull Requests y mejoras son bienvenidas.
+Usa el sistema de Issues para sugerencias, bugs o nuevas ideas.
+
+### 📄 Licencia
+
+Este proyecto está licenciado bajo MIT.
